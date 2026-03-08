@@ -1,4 +1,4 @@
-![Banner Python](./imagens/Python-import-chamada-metodo-dinamica.gif)
+![Banner Python](./markdown/imagens/Python-import-chamada-metodo-dinamica.gif)
 
 # Linguagem de Programação 5 - Python
 
