@@ -1,6 +1,6 @@
-print('Vão se fuder')
+print('Teste Python - Primeira calculadora')
 
-# calculadora foda
+# calculadora
 
 numero1 = 10
 numero2 = 5
@@ -15,4 +15,4 @@ print('A subtração é: ', sub)
 print('A multiplicação é: ', mult)
 print('A divisão é: ', div)
 
-print('Esses são as porras dos resultados.')
+print('Obrigado por usar a calculadora.')
