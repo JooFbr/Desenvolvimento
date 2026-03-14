@@ -13,7 +13,6 @@ print(f'A sub é {sub}')
 print(f'A mult é {mult}')
 print(f'A div é {div}')
 
-
 expressao = numero1 + (numero2* numero2) - numero1
 print(expressao)
 
@@ -22,7 +21,6 @@ print(expressao)
 
 expressao = numero1 / ((numero2* numero2) + numero1)
 print(expressao)
-
 
 # outras operações 
 
