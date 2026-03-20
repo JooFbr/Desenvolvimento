@@ -1,5 +1,6 @@
 # solicitando dados de usuario
 
+
 nome = input('digite seu nome: ')
 print(f'Seu nome é {nome}')
 print(type(nome))
