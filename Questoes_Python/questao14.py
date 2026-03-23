@@ -1,3 +1,4 @@
+# Questão 14 - Escreva um programa que solicite ao usuário dois números e determine se a soma dos números é maior, menor ou igual a 100. Use estruturas condicionais para exibir a mensagem apropriada.
 
 numero_1 = int(input("Digite um número: "))
 numero_2 = int(input("Digite outro número: "))
