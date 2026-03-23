@@ -14,4 +14,5 @@ elif operacao == "divisão":
     if numero_2 != 0:
         resultado = numero_1 / numero_2
     else:
-        print("Divvisão por zero não é permitida.")
+        print("Divisão por zero não é permitida.")
+print(f"O resultado é: {resultado}")
