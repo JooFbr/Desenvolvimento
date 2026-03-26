@@ -6,3 +6,4 @@ if numero % 3 == 0:
     print(f"O numero {numero} é múltiplo de 3.")
 else:
     print(f"O numero {numero} não é múltiplo de 3.")
+    
