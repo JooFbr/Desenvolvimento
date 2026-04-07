@@ -18,7 +18,7 @@ def verificar_vitoria(tab, jogador):
     ]
     
     for combo in combinacoes:
-        if tab[combo[0]] == tab[combo[1]] == tab[combo[2]] == jogador:
+        if tab[combo[0]] == tab[combo[1]] == tab[combo[2]] == jogad     or:
             return True
     return False
 
