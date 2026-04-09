@@ -1,0 +1,76 @@
+<DOCTYPE html>
+    <html lang='pt - BR'>
+<html>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Consumo de API com JavaScript - Google Books</title>
+    <style>
+    </style>
+</html>
+<body>
+
+    <div class="container">
+        <h1>Busca de livros (Google Books API)</h1>
+        <p>Digite um termo para buscar livros: </p>
+        <input type="text" id="searchInput" placeholder="EX: clean code">
+        <button onclick="searchBooks()">Pesquisar</button>
+
+        <h2>Resultados:</h2>
+        <div id="results"></div>
+            <p>Nenhum livro encontrado ainda. Digite um termo e clique em buscar.</p>
+    </div>
+<script>
+    document.getElementById("searchInput").addEventListener("keypress", function(event) {
+        const searchTerm = document.getElementById("searchInput").value;
+        if (searchTerm) {
+            searchBooks(searchTerm);
+        }
+        else {
+            alert("Por favor, digite um termo de busca.");
+        }
+    });
+
+async function fetchBooks(searchTerm) {
+    const url = 'https://www.googleapis.com/books/v1/volumes?q=' + encodeURIComponent(searchTerm);
+    const resultsContainer = document.getElementById('searchContainer').value;
+    resultsContainer.innerHTML = '<p>Buscando livros...</p>';
+
+    try {
+        const response = await fetch(url);
+
+        // verificar se a requisição fpo bem sucedida
+        if (!response.ok) {
+            throw new Error('Erro HTTP! Status: $(response.status)');
+        }
+
+        const data = await response.json();
+
+        resultsContainer.innerHTML = ''; // Limpa resultados anteriores
+
+        if (data.items && data.items.length > 0) {
+            data.items.forEach(book => {
+                const title = book.volumeInfo.title || 'Sem título';
+                const authors = book.volumeInfo.authors ? book.volumeInfo.authors.join(', ') : 'Autor desconhecido';
+                const description = book.volumeInfo.description ? book.volumeInfo.description.substring(0, 200) + '...' : 'Descrição não disponível';
+
+                const bookItem = document.createElement('div');
+                bookItem.classList.add('book-item');
+                bookItem.innerHTML = `
+                    <h3>${title}</h3>
+                    <p><strong>Autores:</strong> ${authors}</p>
+                    <p><strong>Descrição:</strong> ${description}</p>
+                `;
+
+                resultsContainer.appendChild(bookItem);
+            });
+        } else {
+            resultsContainer.innerHTML = '<p>Nenhum livro encontrado.</p>';
+        }
+    } catch (error) {
+        console.error('Erro ao buscar livros:', error);
+        resultsContainer.innerHTML = '<p>Ocorreu um erro ao buscar os livros. Por favor, tente novamente mais tarde.</p>';
+    }
+}
+</script>
+
+</body>
